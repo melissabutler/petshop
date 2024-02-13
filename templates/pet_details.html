@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %} {{pet.name}} {% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <h2>{{pet.name}}</h2>
+    {% if pet.photo_url %}
+    <img src="{{pet.photo_url}}">
+    {% endif %}
+
+    {% if pet.species %}
+    <p>Species: {{pet.species}}</p>
+    {% endif %}
+
+    {% if pet.age %}
+    <p>Age: {{pet.age}}</p>
+    {% endif %}
+
+    {% if pet.notes %}
+    <p> Notes: {{pet.notes}}</p>
+    {% endif %}
+
+
+    <form>
+    <button class="btn btn-success" formaction="/pets/{{pet.id}}/edit" formmethod="GET">Edit</button>
+    <button class="btn btn-danger" formaction="/pets/{{pet.id}}/delete" formmethod="POST">Delete</button> 
+    </form>
+</div>
+{% endblock %}

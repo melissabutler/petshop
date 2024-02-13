@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}New Pet Form{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form>
+        {{form.hidden_tag()}}
+        {{form.name.label}}
+        {{form.name(class_="form-control")}}
+        
+        {{form.species.label}}
+        {{form.species(class_="form-control")}}
+        
+        {{form.photo_url.label}}
+        {{form.photo_url(class_="form-control")}}
+        
+        {{form.age.label}}
+        {{form.age(class_="form-control")}}
+        
+        {{form.notes.label}}
+        {{form.notes(class_="form-control")}}
+        
+        {{form.available.label}}
+        {{form.available(class_="form-check")}}
+        <button class="btn btn-success" formmethod="POST">Submit</button>
+    </form>
+    </div>
+<!-- <div class="container">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        {% for field in form if field.widget.input_type != 'hidden' %}
+        <div>
+            {{field.label}}
+            {{field (class_="form-control")}}
+
+            {% for err in field.errors %}
+            <small class="form-text">
+            {{err}}
+            </small>
+            {% endfor %}
+        </div>
+        {% endfor %}
+        <button class="btn btn-success">Submit</button>
+    </form>
+</div> -->
+{% endblock %}
